@@ -35,7 +35,7 @@
         --x: calc(var(--active) * 800%);
         --y: calc(var(--active) * 200%);
         --rot: calc(var(--active) * 120deg);
-        --opacity: calc(var(--zIndex) / var(--items) * 3 - 2    );
+        --opacity: calc(var(--zIndex) / var(--items) * 3 - 2);
         /* overflow: hidden; */
         position: absolute;
         z-index: var(--zIndex);
@@ -151,6 +151,26 @@
         --size: 5px;
         transition-duration: 0.7s;
     }
+
+    @media screen and (max-width: 426.333px) {
+        .carousel-item .title {
+            left: 8px;
+            font-size: 14px;
+        }
+
+        .carousel-item .num {
+            left: 8px;
+            top: 8px;
+            font-size: 14px;
+        }
+
+        .carousel-item.selected .desc {
+            position: absolute;
+            bottom: -6rem;
+            font-size: 12px;
+        }
+
+    }
 </style>
 
 <body>
@@ -166,8 +186,7 @@
         <div class="carousel-item">
             <div class="carousel-box">
                 <div class="title">I want to tell you Something 😍</div>
-                <img
-                    src="/nnn/card_09.png" />
+                <img src="/nnn/card_09.png" />
                 <div class="num">2019</div>
             </div>
             <p class="desc">aku lupa ini acara apa, tapi disini masih malu malu banget</p>
@@ -177,8 +196,7 @@
             <div class="carousel-box">
                 <div class="title">Please Keep Dragging 😊 </div>
                 <div class="num">2019</div>
-                <img
-                    src="/nnn/card_08.png" />
+                <img src="/nnn/card_08.png" />
             </div>
             <p class="desc">aish, minta orang buat fotoin ke bucinan di lorong sekolah, sangat amat luar biasa</p>
         </div>
@@ -187,8 +205,7 @@
             <div class="carousel-box">
                 <div class="title">You are Amazing 🤩 </div>
                 <div class="num">2020</div>
-                <img
-                    src="/nnn/card_07.png" />
+                <img src="/nnn/card_07.png" />
             </div>
             <p class="desc">yang mau nonton film bareng-bareng nih yeeee~</p>
         </div>
@@ -197,8 +214,7 @@
             <div class="carousel-box">
                 <div class="title">Most Beautiful Person on Earth 💯</div>
                 <div class="num">2021</div>
-                <img
-                    src="/nnn/card_06.png" />
+                <img src="/nnn/card_06.png" />
             </div>
             <p class="desc">wah, akhirnya awal dari kehidupan setelah smk</p>
         </div>
@@ -207,8 +223,7 @@
             <div class="carousel-box">
                 <div class="title">And Cutest 🎀</div>
                 <div class="num">2021</div>
-                <img
-                    src="/nnn/card_05.png" />
+                <img src="/nnn/card_05.png" />
             </div>
             <p class="desc">eits, tapi santai dulu gak sih buat liat dedek bayi.</p>
         </div>
@@ -217,8 +232,7 @@
             <div class="carousel-box">
                 <div class="title">And Since i met You 😗 </div>
                 <div class="num">2022</div>
-                <img
-                    src="/nnn/card_04.png" />
+                <img src="/nnn/card_04.png" />
             </div>
             <p class="desc">ini foto yang paling greget, petakilan diliatin kakak kakak pada saat itu, hihihi</p>
         </div>
@@ -227,18 +241,17 @@
             <div class="carousel-box">
                 <div class="title">I feel very Lucky Everyday 😇</div>
                 <div class="num">2023</div>
-                <img
-                    src="/nnn/card_03.png" />
+                <img src="/nnn/card_03.png" />
             </div>
-            <p class="desc">perjuangan banget, bikin foto terbaik, pan kapan kita bisa foto lebih dari 1x, yuk bisa yuk</p>
+            <p class="desc">perjuangan banget, bikin foto terbaik, pan kapan kita bisa foto lebih dari 1x, yuk bisa yuk
+            </p>
         </div>
 
         <div class="carousel-item">
             <div class="carousel-box">
                 <div class="title">and I have Crush on You 🥰</div>
                 <div class="num">2024</div>
-                <img
-                    src="/nnn/card_02.png" />
+                <img src="/nnn/card_02.png" />
             </div>
             <p class="desc">momen nonton dukun korea, malah excited sama samurai jepang check ? XD</p>
         </div>
@@ -246,8 +259,7 @@
             <div class="carousel-box">
                 <div class="title">I love You ❤️</div>
                 <!-- <div class="num">Not The End!</div> -->
-                <img
-                    src="/nnn/card_01.png" />
+                <img src="/nnn/card_01.png" />
             </div>
             <p>Lorem, ipsum dolor.</p>
         </div>
