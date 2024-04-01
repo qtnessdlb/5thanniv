@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/hati-png.png" type="image/x-icon">
+    <title>The 5th Anniversary</title>
+</head>
+<style>
+    :root {
+        --font-size-adaptive-number: clamp(14px, 10vw, 36px);
+        --font-size-adaptive-title: clamp(14px, 10vw, 28px);
+        --amount-item: 10;
+    }
+
+    body {
+        overflow: hidden;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        background: linear-gradient(135deg, black, #220033);
+    }
+
+    .carousel {
+        position: relative;
+        z-index: 1;
+        height: 100vh;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .carousel-item {
+        --items: var(--amount-item);
+        --width: clamp(150px, 30vw, 300px);
+        --height: clamp(200px, 40vw, 400px);
+        --x: calc(var(--active) * 800%);
+        --y: calc(var(--active) * 200%);
+        --rot: calc(var(--active) * 120deg);
+        --opacity: calc(var(--zIndex) / var(--items) * 3 - 2    );
+        /* overflow: hidden; */
+        position: absolute;
+        z-index: var(--zIndex);
+        width: var(--width);
+        height: var(--height);
+        margin: calc(var(--height) * -0.5) 0 0 calc(var(--width) * -0.5);
+        /* border-radius: 10px; */
+        top: 50%;
+        left: 47%;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        transform-origin: 0% 100%;
+        box-shadow: 0 10px 50px 10px rgba(0, 0, 0, 0.5);
+        background: black;
+        pointer-events: all;
+        transform: translate(var(--x), var(--y)) rotate(var(--rot)) scale(1.3);
+        transition: transform 0.8s cubic-bezier(0, 0.02, 0, 1);
+    }
+
+    .carousel-item .carousel-box {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
+        opacity: var(--opacity);
+        /* font-family: "Orelo-sw-db", serif; */
+    }
+
+    .carousel-item .carousel-box:before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.5));
+    }
+
+    .carousel-item .title {
+        position: absolute;
+        z-index: 1;
+        color: #fff;
+        bottom: 20px;
+        left: 20px;
+        font-size: var(--font-size-adaptive-title);
+        transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
+        text-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel-item .num {
+        position: absolute;
+        z-index: 1;
+        color: #fff;
+        top: 10px;
+        left: 20px;
+        transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
+        font-size: var(--font-size-adaptive-number);
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        pointer-events: none;
+    }
+
+    .carousel-item.selected .desc {
+        position: absolute;
+        bottom: -7rem;
+        left: 0rem;
+        right: 0rem;
+        margin-inline: auto;
+        max-width: 80%;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.7);
+        transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
+        text-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+        padding: 1rem;
+        opacity: var(--opacity);
+        z-index: var(--zIndex);
+    }
+
+    .cursor {
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        --size: 40px;
+        width: var(--size);
+        height: var(--size);
+        border-radius: 50%;
+        border: 3px solid rgba(255, 255, 255, 0.2);
+        margin: calc(var(--size) * -0.5) 0 0 calc(var(--size) * -0.5);
+        transition: transform 0.85s cubic-bezier(0, 0.02, 0, 1);
+        display: none;
+        pointer-events: none;
+    }
+
+    @media (pointer: fine) {
+        .cursor {
+            display: block;
+        }
+    }
+
+    .cursor2 {
+        --size: 5px;
+        transition-duration: 0.7s;
+    }
+</style>
+
+<body>
+    <div class="carousel">
+        <div class="carousel-item">
+            <div class="carousel-box">
+                <div class="title">Hi 👋</div>
+                <img src="/nnn/card_10.png" />
+                <!-- <div class="num">Begining</div> -->
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <div class="carousel-box">
+                <div class="title">I want to tell you Something 😍</div>
+                <img
+                    src="/nnn/card_09.png" />
+                <div class="num">2019</div>
+            </div>
+            <p class="desc">aku lupa ini acara apa, tapi disini masih malu malu banget</p>
+        </div>
+
+        <div class="carousel-item">
+            <div class="carousel-box">
+                <div class="title">Please Keep Dragging 😊 </div>
+                <div class="num">2019</div>
+                <img
+                    src="/nnn/card_08.png" />
+            </div>
+            <p class="desc">aish, minta orang buat fotoin ke bucinan di lorong sekolah, sangat amat luar biasa</p>
+        </div>
+
+        <div class="carousel-item">
+            <div class="carousel-box">
+                <div class="title">You are Amazing 🤩 </div>
+                <div class="num">2020</div>
+                <img
+                    src="/nnn/card_07.png" />
+            </div>
+            <p class="desc">yang mau nonton film bareng-bareng nih yeeee~</p>
+        </div>
+
+        <div class="carousel-item">
+            <div class="carousel-box">
+                <div class="title">Most Beautiful Person on Earth 💯</div>
+                <div class="num">2021</div>
+                <img
+                    src="/nnn/card_06.png" />
+            </div>
+            <p class="desc">wah, akhirnya awal dari kehidupan setelah smk</p>
+        </div>
+
+        <div class="carousel-item">
+            <div class="carousel-box">
+                <div class="title">And Cutest 🎀</div>
+                <div class="num">2021</div>
+                <img
+                    src="/nnn/card_05.png" />
+            </div>
+            <p class="desc">eits, tapi santai dulu gak sih buat liat dedek bayi.</p>
+        </div>
+
+        <div class="carousel-item">
+            <div class="carousel-box">
+                <div class="title">And Since i met You 😗 </div>
+                <div class="num">2022</div>
+                <img
+                    src="/nnn/card_04.png" />
+            </div>
+            <p class="desc">ini foto yang paling greget, petakilan diliatin kakak kakak pada saat itu, hihihi</p>
+        </div>
+
+        <div class="carousel-item">
+            <div class="carousel-box">
+                <div class="title">I feel very Lucky Everyday 😇</div>
+                <div class="num">2023</div>
+                <img
+                    src="/nnn/card_03.png" />
+            </div>
+            <p class="desc">perjuangan banget, bikin foto terbaik, pan kapan kita bisa foto lebih dari 1x, yuk bisa yuk</p>
+        </div>
+
+        <div class="carousel-item">
+            <div class="carousel-box">
+                <div class="title">and I have Crush on You 🥰</div>
+                <div class="num">2024</div>
+                <img
+                    src="/nnn/card_02.png" />
+            </div>
+            <p class="desc">momen nonton dukun korea, malah excited sama samurai jepang check ? XD</p>
+        </div>
+        <div class="carousel-item">
+            <div class="carousel-box">
+                <div class="title">I love You ❤️</div>
+                <!-- <div class="num">Not The End!</div> -->
+                <img
+                    src="/nnn/card_01.png" />
+            </div>
+            <p>Lorem, ipsum dolor.</p>
+        </div>
+    </div>
+
+    <div class="cursor"></div>
+    <div class="cursor cursor2"></div>
+
+    <script>
+        /*--------------------
+        Vars
+        --------------------*/
+        let progress = 10
+        let startX = 0
+        let active = 0
+        let isDown = false
+
+        /*--------------------
+        Contants
+        --------------------*/
+        const speedWheel = 0.02
+        const speedDrag = -0.1
+
+        /*--------------------
+        Get Z
+        --------------------*/
+        const getZindex = (array, index) => (array.map((_, i) => (index === i) ? array.length : array.length - Math.abs(index - i)))
+
+        /*--------------------
+        Items
+        --------------------*/
+        const $items = document.querySelectorAll('.carousel-item')
+        const $cursors = document.querySelectorAll('.cursor')
+
+
+        const displayItems = (item, index, active) => {
+            const zIndex = getZindex([...$items], active)[index]
+            item.style.setProperty('--zIndex', zIndex)
+            item.style.setProperty('--active', (index - active) / $items.length)
+
+            if (zIndex === 10) {
+                item.classList.add('selected');
+            } else {
+                item.classList.remove('selected');
+            }
+        }
+
+        /*--------------------
+        Animate
+        --------------------*/
+        const animate = () => {
+            progress = Math.max(0, Math.min(progress, 100))
+            active = Math.floor(progress / 100 * ($items.length - 1))
+
+            $items.forEach((item, index) => displayItems(item, index, active))
+        }
+        animate()
+
+        /*--------------------
+        Click on Items
+        --------------------*/
+        $items.forEach((item, i) => {
+            item.addEventListener('click', () => {
+                progress = (i / $items.length) * 100 + 10
+                animate()
+            })
+        })
+
+        /*--------------------
+        Handlers
+        --------------------*/
+        const handleWheel = e => {
+            const wheelProgress = e.deltaY * speedWheel
+            progress = progress + wheelProgress
+            animate()
+        }
+
+        const handleMouseMove = (e) => {
+            if (e.type === 'mousemove') {
+                $cursors.forEach(($cursor) => {
+                    $cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`
+                })
+            }
+            if (!isDown) return
+            const x = e.clientX || (e.touches && e.touches[0].clientX) || 0
+            const mouseProgress = (x - startX) * speedDrag
+            progress = progress + mouseProgress
+            startX = x
+            animate()
+        }
+
+        const handleMouseDown = e => {
+            isDown = true
+            startX = e.clientX || (e.touches && e.touches[0].clientX) || 0
+        }
+
+        const handleMouseUp = () => {
+            isDown = false
+        }
+
+        /*--------------------
+        Listeners
+        --------------------*/
+        document.addEventListener('mousewheel', handleWheel)
+        document.addEventListener('mousedown', handleMouseDown)
+        document.addEventListener('mousemove', handleMouseMove)
+        document.addEventListener('mouseup', handleMouseUp)
+        document.addEventListener('touchstart', handleMouseDown)
+        document.addEventListener('touchmove', handleMouseMove)
+        document.addEventListener('touchend', handleMouseUp)
+    </script>
+</body>
+
+</html>
